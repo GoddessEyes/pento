@@ -19,12 +19,10 @@ defmodule PentoWeb.ConnCase do
 
   using do
     quote do
-      # The default endpoint for testing
       @endpoint PentoWeb.Endpoint
 
       use PentoWeb, :verified_routes
 
-      # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
       import PentoWeb.ConnCase
