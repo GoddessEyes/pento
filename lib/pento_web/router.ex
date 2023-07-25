@@ -22,6 +22,14 @@ defmodule PentoWeb.Router do
 
     get "/", PageController, :home
     live "/guess", WrongLive
+
+    live "/products", ProductLive.Index, :index
+    live "/products/new", ProductLive.Index, :new
+    live "/products/:id/edit", ProductLive.Index, :edit
+
+    live "/products/:id", ProductLive.Show, :show
+    live "/products/:id/show/edit", ProductLive.Show, :edit
+
   end
 
   if Application.compile_env(:pento, :dev_routes) do
