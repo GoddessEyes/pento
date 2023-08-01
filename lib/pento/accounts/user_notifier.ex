@@ -3,7 +3,6 @@ defmodule Pento.Accounts.UserNotifier do
 
   alias Pento.Mailer
 
-  # Delivers the email using the application mailer.
   defp deliver(recipient, subject, body) do
     email =
       new()
