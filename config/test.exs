@@ -1,10 +1,8 @@
 import Config
 
-config :bcrypt_elixir, :log_rounds, 1
-
 config :pento, Pento.Repo,
-  username: "pento",
-  password: "pento",
+  username: "postgres",
+  password: "postgres",
   hostname: "localhost",
   database: "pento_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
@@ -12,7 +10,7 @@ config :pento, Pento.Repo,
 
 config :pento, PentoWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "pQ2HPrjQSuSowPY1ZwNycA8VrETzIjjWdAA1xDWBr2WeRVio/0OfLUoZlB+3VP0F",
+  secret_key_base: "UkBip2rC2qk13c+OYEvRAGnf8v7TcIKXZ/Z0ik91j5jRYcMX33mt3dHj5fSA18za",
   server: false
 
 config :pento, Pento.Mailer, adapter: Swoosh.Adapters.Test

@@ -10,7 +10,7 @@ config :pento, PentoWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Pento.PubSub,
-  live_view: [signing_salt: "991Cgpqz"]
+  live_view: [signing_salt: "sA2I3wAy"]
 
 config :pento, Pento.Mailer, adapter: Swoosh.Adapters.Local
 
@@ -24,7 +24,7 @@ config :esbuild,
   ]
 
 config :tailwind,
-  version: "3.2.7",
+  version: "3.3.2",
   default: [
     args: ~w(
       --config=tailwind.config.js
