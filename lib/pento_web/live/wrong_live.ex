@@ -6,15 +6,15 @@ defmodule PentoWeb.WrongLive do
     ~H"""
     <h1>Your score: <%= @score %></h1>
     <h2>
-    <%= @message %>
-    It's <%= @time %>
+      <%= @message %>
+      It's <%= @time %>
     </h2>
     <h2>
-    <%= for n <- 1..10 do %>
-    <.link href="#" phx-click="guess" phx-value-number= {n} >
-    <%= n %>
-    </.link>
-    <% end %>
+      <%= for n <- 1..10 do %>
+      <.link href="#" phx-click="guess" phx-value-number= {n} >
+        <%= n %>
+      </.link>
+      <% end %>
     </h2>
     """
   end
