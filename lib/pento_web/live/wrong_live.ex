@@ -15,6 +15,10 @@ defmodule PentoWeb.WrongLive do
         <%= n %>
       </.link>
       <% end %>
+      <pre>
+        <%= @current_user.email %>
+        <%= @session_id %>
+      </pre>
     </h2>
     """
   end
@@ -23,8 +27,20 @@ defmodule PentoWeb.WrongLive do
     DateTime.utc_now() |> to_string
   end
 
-  def mount(_params, _session, socket) do
-    {:ok, assign(socket, score: 0, message: "Make a guess:", time: time())}
+  def mount(_params, session, socket) do
+    user = Pento.Accounts.get_user_by_session_token(session["user_token"])
+
+    {
+      :ok,
+      assign(
+        socket,
+        score: 0,
+        message: "Make a guess:",
+        time: time(),
+        session_id: session["live_socket_id"],
+        current_user: user
+      )
+    }
   end
 
   def handle_event("guess", %{"number" => guess}, socket) do

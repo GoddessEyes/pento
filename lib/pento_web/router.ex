@@ -13,13 +13,6 @@ defmodule PentoWeb.Router do
     plug(:fetch_current_user)
   end
 
-  scope "/", PentoWeb do
-    pipe_through(:browser)
-
-    live("/guess", WrongLive)
-    get("/", PageController, :home)
-  end
-
   if Application.compile_env(:pento, :dev_routes) do
     import Phoenix.LiveDashboard.Router
 
@@ -32,10 +25,14 @@ defmodule PentoWeb.Router do
   end
 
   scope "/", PentoWeb do
+    pipe_through([:browser])
+    get("/", PageController, :home)
+  end
+
+  scope "/", PentoWeb do
     pipe_through([:browser, :redirect_if_user_is_authenticated])
 
-    live_session :redirect_if_user_is_authenticated,
-      on_mount: [{PentoWeb.UserAuth, :redirect_if_user_is_authenticated}] do
+    live_session :redirect_if_user_is_authenticated do
       live("/users/register", UserRegistrationLive, :new)
       live("/users/log_in", UserLoginLive, :new)
       live("/users/reset_password", UserForgotPasswordLive, :new)
@@ -52,6 +49,14 @@ defmodule PentoWeb.Router do
       on_mount: [{PentoWeb.UserAuth, :ensure_authenticated}] do
       live("/users/settings", UserSettingsLive, :edit)
       live("/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email)
+
+      live("/guess", WrongLive)
+
+      live("/products", ProductLive.Index, :index)
+      live("/products/new", ProductLive.Index, :new)
+      live("/products/:id/edit", ProductLive.Index, :edit)
+      live("/products/:id", ProductLive.Show, :show)
+      live("/products/:id/show/edit", ProductLive.Show, :edit)
     end
   end
 
