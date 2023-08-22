@@ -60,19 +60,18 @@ defmodule PentoWeb.Router do
       live("/products/:id/show/edit", ProductLive.Show, :edit)
 
       # Questions
-      live "/questions", QuestionLive.Index, :index
-      live "/questions/new", QuestionLive.Index, :new
-      live "/questions/:id/edit", QuestionLive.Index, :edit
-      live "/questions/:id", QuestionLive.Show, :show
-      live "/questions/:id/show/edit", QuestionLive.Show, :edit
+      live("/questions", QuestionLive.Index, :index)
+      live("/questions/new", QuestionLive.Index, :new)
+      live("/questions/:id/edit", QuestionLive.Index, :edit)
+      live("/questions/:id", QuestionLive.Show, :show)
+      live("/questions/:id/show/edit", QuestionLive.Show, :edit)
 
       # Answers
-      live "/answers", AnswerLive.Index, :index
-      live "/answers/new", AnswerLive.Index, :new
-      live "/answers/:id/edit", AnswerLive.Index, :edit
-      live "/answers/:id", AnswerLive.Show, :show
-      live "/answers/:id/show/edit", AnswerLive.Show, :edit
-
+      live("/answers", AnswerLive.Index, :index)
+      live("/answers/new", AnswerLive.Index, :new)
+      live("/answers/:id/edit", AnswerLive.Index, :edit)
+      live("/answers/:id", AnswerLive.Show, :show)
+      live("/answers/:id/show/edit", AnswerLive.Show, :edit)
     end
   end
 

@@ -3,9 +3,9 @@ defmodule Pento.FAQ.Question do
   import Ecto.Changeset
 
   schema "questions" do
-    field :question_text, :string
-    field :vote_count, :integer
-    field :author_id, :id
+    field(:question_text, :string)
+    field(:vote_count, :integer)
+    field(:author_id, :id)
 
     timestamps()
   end
