@@ -5,6 +5,7 @@
   </.header>
 
   <.simple_form
+    multipart
     for={@form}
     id="product-form"
     phx-target={@myself}
@@ -15,8 +16,28 @@
     <.input field={@form[:description]} type="text" label="Description" />
     <.input field={@form[:unit_price]} type="number" label="Unit price" step="any" />
     <.input field={@form[:sku]} type="number" label="Sku" />
+
+    <div phx-drop-target={ @uploads.image.ref }> zone for drug-n-drop </div>
+		<.label>Image</.label>
+		<.live_file_input upload={@uploads.image} />
+
     <:actions>
       <.button phx-disable-with="Saving...">Save Product</.button>
     </:actions>
+
   </.simple_form>
+
+  <%= for image <- @uploads.image.entries do %>
+		<div class="mt-4">
+			<.live_img_preview entry={image} width="60" />
+		</div>
+		<progress value={image.progress} max="100" />
+
+		<%= for err <- upload_errors(@uploads.image, image) do %>
+			<.error><%= err %></.error>
+		<% end %>
+	<% end %>
+
+
+
 </div>
