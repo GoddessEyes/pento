@@ -3,9 +3,9 @@ defmodule Pento.Survey.Demographic do
   import Ecto.Changeset
 
   schema "demographics" do
-    field :gender, :string
-    field :year_of_birth, :integer
-    field :user_id, :id
+    field(:gender, :string)
+    field(:year_of_birth, :integer)
+    field(:user_id, :id)
 
     timestamps()
   end
