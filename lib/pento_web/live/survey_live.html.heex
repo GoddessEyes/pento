@@ -1,3 +1,9 @@
 <PentoWeb.SurveyLive.Component.hero content="Survey" >
   Please fill out our survey
 </PentoWeb.SurveyLive.Component.hero>
+
+<%= if @demographic do %>
+  <PentoWeb.DemographicLive.Show.details demographic={@demographic} />
+<% else %>
+  <h2>Demographic Form coming soon!</h2>
+<% end %>
