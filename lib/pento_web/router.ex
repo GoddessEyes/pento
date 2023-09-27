@@ -45,11 +45,6 @@ defmodule PentoWeb.Router do
   scope "/", PentoWeb do
     pipe_through([:browser, :require_authenticated_user])
 
-    live_session :default, on_mount: [{PentoWeb.UserAuth, :ensure_authenticated}] do
-      live("/guess", WrongLive)
-      live("/promo", PromoLive)
-    end
-
     live_session :require_authenticated_user,
       on_mount: [{PentoWeb.UserAuth, :ensure_authenticated}] do
       live("/users/settings", UserSettingsLive, :edit)
@@ -75,6 +70,11 @@ defmodule PentoWeb.Router do
       live("/answers/:id/edit", AnswerLive.Index, :edit)
       live("/answers/:id", AnswerLive.Show, :show)
       live("/answers/:id/show/edit", AnswerLive.Show, :edit)
+
+      # Custom
+      live("/guess", WrongLive)
+      live("/promo", PromoLive)
+      live("/survey", SurveyLive, :index)
     end
   end
 
