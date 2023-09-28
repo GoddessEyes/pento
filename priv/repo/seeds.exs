@@ -1,4 +1,5 @@
 alias Pento.Catalog
+
 products = [
   %{
     name: "Chess",
@@ -9,7 +10,8 @@ products = [
   %{
     name: "Tic-Tac-Toe",
     description: "The game of Xs and Os",
-    sku: 11_121_314, unit_price: 3.00
+    sku: 11_121_314,
+    unit_price: 3.00
   },
   %{
     name: "Table Tennis",
@@ -18,6 +20,7 @@ products = [
     unit_price: 12.00
   }
 ]
+
 Enum.each(products, fn product ->
   Catalog.create_product(product)
 end)

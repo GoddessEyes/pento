@@ -31,7 +31,12 @@
   </:action>
 </.table>
 
-<.modal :if={@live_action in [:new, :edit]} id="answer-modal" show on_cancel={JS.patch(~p"/answers")}>
+<.modal
+  :if={@live_action in [:new, :edit]}
+  id="answer-modal"
+  show
+  on_cancel={JS.patch(~p"/answers")}
+>
   <.live_component
     module={PentoWeb.AnswerLive.FormComponent}
     id={@answer.id || :new}

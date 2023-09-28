@@ -11,12 +11,10 @@ defmodule PentoWeb.DemographicLive.Show do
 
   def details(assigns) do
     ~H"""
-
     <div>
-      <h2 class="font-medium text-2xl">Demographics <%= raw "&#x2713;" %></h2>
+      <h2 class="text-2xl font-medium">Demographics <%= raw("&#x2713;") %></h2>
 
-       <PentoWeb.CoreComponents.table id="demographic" rows={[@demographic]}>
-
+      <PentoWeb.CoreComponents.table id="demographic" rows={[@demographic]}>
         <:col :let={demographic} label="Gender">
           <%= demographic.gender %>
         </:col>
@@ -24,7 +22,6 @@ defmodule PentoWeb.DemographicLive.Show do
         <:col :let={demographic} label="Year of Birth">
           <%= demographic.year_of_birth %>
         </:col>
-
       </PentoWeb.CoreComponents.table>
     </div>
     """
