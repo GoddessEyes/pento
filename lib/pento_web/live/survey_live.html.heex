@@ -5,5 +5,9 @@
 <%= if @demographic do %>
   <PentoWeb.DemographicLive.Show.details demographic={@demographic} />
 <% else %>
-  <h2>Demographic Form coming soon!</h2>
+  <.live_component
+    module={PentoWeb.DemographicLive.Form}
+    id="demographic-form"
+    current_user={@current_user}
+  />
 <% end %>
