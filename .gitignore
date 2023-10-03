@@ -14,3 +14,4 @@ npm-debug.log
 /assets/node_modules/
 .idea
 /pento.iml
+.elixir-tools

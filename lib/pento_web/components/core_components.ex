@@ -323,6 +323,7 @@ defmodule PentoWeb.CoreComponents do
     """
   end
 
+  # Custom `rating` input
   def input(%{type: "rating"} = assigns) do
     ~H"""
     <select id={@id} name={@name} class="border focus:ring-zinc-500" multiple={@multiple} {@rest}>
