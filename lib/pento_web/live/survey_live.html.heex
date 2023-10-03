@@ -4,6 +4,9 @@
 
 <%= if @demographic do %>
   <PentoWeb.DemographicLive.Show.details demographic={@demographic} />
+  <hr />
+  <br />
+  <PentoWeb.RatingLive.Index.product_list products={@products} current_user={@current_user} />
 <% else %>
   <.live_component
     module={PentoWeb.DemographicLive.Form}
