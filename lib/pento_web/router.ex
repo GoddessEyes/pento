@@ -75,6 +75,7 @@ defmodule PentoWeb.Router do
       live("/guess", WrongLive)
       live("/promo", PromoLive)
       live("/survey", SurveyLive, :index)
+      live "/admin/dashboard", Admin.DashboardLive
     end
   end
 

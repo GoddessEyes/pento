@@ -3,7 +3,9 @@
     <div class="flex items-center gap-4">
       <%= if assigns[:current_user] do %>
         <b><%= @current_user.email %></b>
+        <.link href={~p"/admin/dashboard"}>Dashboard</.link>
         <.link href={~p"/products"}>Products</.link>
+        <.link href={~p"/survey"}>Survey</.link>
         <.link href={~p"/survey"}>Survey</.link>
         <.link href={~p"/users/settings"}>Settings</.link>
         <.link href={~p"/users/log_out"} method="delete">Log out</.link>
