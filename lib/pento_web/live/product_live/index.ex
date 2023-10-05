@@ -9,7 +9,7 @@ defmodule PentoWeb.ProductLive.Index do
     {
       :ok,
       socket
-      |> stream(:products, Catalog.list_products())
+      |> stream(:products, Pento.Catalog.list_products())
       |> assign(:greeting, "Welcome to Pento!!!")
     }
   end
