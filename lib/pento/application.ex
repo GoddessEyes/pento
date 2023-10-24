@@ -10,7 +10,8 @@ defmodule Pento.Application do
       Pento.Repo,
       {Phoenix.PubSub, name: Pento.PubSub},
       {Finch, name: Pento.Finch},
-      PentoWeb.Endpoint
+      PentoWeb.Endpoint,
+      PentoWeb.Presence
     ]
 
     opts = [strategy: :one_for_one, name: Pento.Supervisor]
